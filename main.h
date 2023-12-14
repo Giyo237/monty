@@ -34,10 +34,10 @@ typedef struct monty_s
 {
 	char *val;
 	FILE *ptr;
-	char line;
+	char *line;
 	int i;
 }  monty_t;
-extern monty_t bus;
+extern monty_t monty;
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -51,7 +51,13 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-void push(stack_t **head, int val, unsigned int line_number);
+void push(stack_t **head, unsigned int line_number);
 void _pall(stack_t **head, unsigned int counter);
+void add_new_node(stack_t **head, int new);
+void add_queue_element(stack_t **head, int new);
+void _queue(stack_t **head, unsigned int line_number);
+void freeme(stack_t *head);
+int execute(char *line, stack_t **stack, unsigned int line_number, FILE *ptr);
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 
 #endif

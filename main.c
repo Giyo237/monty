@@ -1,24 +1,48 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include "main.h"
+#include <stdlib.h>
 
-int main(void)
+monty_t monty = {NULL, NULL, NULL, 0};
+/**
+* main - monty code interpreter
+* @argc: number of arguments
+* @argv: monty file location
+* Return: 0 on success
+*/
+int main(int argc, char *argv[])
 {
-	stack_t *head = NULL, *current, *tmp;
+	char *line;
+	FILE *ptr;
+	size_t s = 0;
+	ssize_t rline = 1;
+	stack_t *stack = NULL;
+	unsigned int line_number = 0;
 
-	push(&head, 5, 1);
-	push(&head, 10, 2);
-	push(&head, 8, 3);
-
-	_pall(&head, 0);
-
-	current = head;
-
-	while (current != NULL)
+	if (argc != 2)
 	{
-		tmp = current;
-		current = current->next;
-		free(tmp);
+		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
 	}
-	return (0);
+	ptr = fopen(argv[1], "r");
+	monty.ptr = ptr;
+	if (!ptr)
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+		exit(EXIT_FAILURE);
+	}
+	while (rline > 0)
+	{
+		line = NULL;
+		rline = getline(&line, &s, ptr);
+		monty.line = line;
+		line_number++;
+		if (rline > 0)
+		{
+			execute(line, &stack, line_number, ptr);
+		}
+		free(line);
+	}
+	freeme(stack);
+	fclose(ptr);
+return (0);
 }
