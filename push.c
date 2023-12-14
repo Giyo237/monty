@@ -1,4 +1,4 @@
-#include "main.h"
+#include "monty.h"
 #include <stdlib.h>
 /**
   * push - function that pushes to the top of a stck
