@@ -13,7 +13,7 @@ int execute(char *line, stack_t **stack, unsigned int line_number, FILE *ptr)
 				{"push", push}, {"pall", _pall},
 				{"pint", _pint}, {"pop", _pop},
 				{"swap", _swap}, {"add", _add},
-				{"nop",_nop}
+				{"nop", _nop}
 				};
 	unsigned int i = 0;
 	char *op;
@@ -30,7 +30,7 @@ int execute(char *line, stack_t **stack, unsigned int line_number, FILE *ptr)
 		}
 		i++;
 	}
-	if (op)
+	if (!op)
 	{ fprintf(stderr, "L%d: unknown instruction %s\n", line_number, op);
 		fclose(ptr);
 		free(line);
