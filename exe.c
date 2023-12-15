@@ -11,7 +11,7 @@ int execute(char *line, stack_t **stack, unsigned int line_number, FILE *ptr)
 {
 	instruction_t opst[] = {
 				{"push", push}, {"pall", _pall},
-				{"pint", _pint}, {"pop",_pop}
+				{"pint", _pint}, {"pop", _pop}
 				};
 	unsigned int i = 0;
 	char *op;

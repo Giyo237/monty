@@ -9,7 +9,7 @@ void push(stack_t **head, unsigned int line_number)
 {
 	int n, a = 0, v = 0;
 
-if (monty.val)
+	if (monty.val)
 	{
 		if (monty.val[0] == '-')
 			a++;
