@@ -30,10 +30,10 @@ int execute(char *line, stack_t **stack, unsigned int line_number, FILE *ptr)
 		}
 		i++;
 	}
-	if (!opst[i])
+	if (op && opst[i].opcode == NULL)
 	{ fprintf(stderr, "L%d: unknown instruction %s\n", line_number, op);
 		fclose(ptr);
-		free(line);
+		/*free(line);*/
 		freeme(*stack);
 		exit(EXIT_FAILURE); }
 	return (1);
