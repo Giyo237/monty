@@ -15,7 +15,7 @@ int execute(char *line, stack_t **stack, unsigned int line_number, FILE *ptr)
 				{"swap", _swap}, {"add", _add},
 				{"nop", _nop}, {"stack", _stack},
 				{"sub", _sub}, {"mul", _mul},
-				{"div", _div},
+				{"div", _div}, {"mod", _mod},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;
@@ -23,7 +23,9 @@ int execute(char *line, stack_t **stack, unsigned int line_number, FILE *ptr)
 
 	op = strtok(line, " \n\t");
 	if (op && op[0] == '#')
+	{
 		return (0);
+	}
 	monty.val = strtok(NULL, " \n\t");
 	while (opst[i].opcode && op)
 	{
