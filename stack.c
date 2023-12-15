@@ -8,6 +8,6 @@
 void _stack(stack_t **head, unsigned int line_number)
 {
 	(void)head;
-	(void)line number;
+	(void)line_number;
 	monty.i = 0;
 }
