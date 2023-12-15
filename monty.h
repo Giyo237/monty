@@ -61,5 +61,6 @@ int execute(char *line, stack_t **stack, unsigned int line_number, FILE *ptr);
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 void _pint(stack_t **head, unsigned int line_number);
 void _pop(stack_t **head, unsigned int line_number);
+void _swap(stack_t **head, unsigned int line_number);
 
 #endif
