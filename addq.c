@@ -14,7 +14,7 @@ void _queue(stack_t **head, unsigned int line_number)
 
 /**
  * add_queue_element - function that adds elemt to the tail
- * @new: newnode to be added
+ * @n: newnode to be added
  * @head: head of the stack
  * Return: void
  */
@@ -26,7 +26,7 @@ void add_queue_element(stack_t **head, int n)
 	newNode = malloc(sizeof(stack_t));
 	if (newNode == NULL)
 	{
-		printf("allocation error\n");
+		printf("Error\n");
 	}
 	newNode->n = n;
 	newNode->next = NULL;

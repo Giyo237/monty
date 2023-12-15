@@ -3,7 +3,6 @@
 /**
   * push - function that pushes to the top of a stck
   *@head: pointer to the pointer of the head of the stack
-  *@val:value to be added
   *@line_number:tracker
   */
 void push(stack_t **head, unsigned int line_number)
@@ -11,7 +10,7 @@ void push(stack_t **head, unsigned int line_number)
 	int n, a = 0, v = 0;
 
 if (monty.val)
-	{
+	i{
 		if (monty.val[0] == '-')
 			a++;
 		for (; monty.val[a] != '\0'; a++)
@@ -28,7 +27,7 @@ if (monty.val)
 		}
 	}
 	else
-	{ fprintf(stderr, "L%d: usage: push integer\n",line_number);
+	{ fprintf(stderr, "L%d: usage: push integer\n", line_number);
 		fclose(monty.ptr);
 		free(monty.line);
 		freeme(*head);

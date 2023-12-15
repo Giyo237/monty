@@ -2,7 +2,7 @@
 /**
  * _pint - prints the top
  * @head: stack head
- * @counter: line_number
+ * @line_number: line_number
  * Return: no return
 */
 void _pint(stack_t **head, unsigned int line_number)

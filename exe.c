@@ -2,9 +2,9 @@
 /**
 * execute - executes the opcode
 * @stack: head linked list - stack
-* @counter: line_counter
-* @file: poiner to monty file
-* @content: line content
+* @line_number: line_counter
+* @ptr: poiner to monty file
+* @line: line content
 * Return: no return
 */
 int execute(char *line, stack_t **stack, unsigned int line_number, FILE *ptr)
