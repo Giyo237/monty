@@ -16,6 +16,7 @@ int execute(char *line, stack_t **stack, unsigned int line_number, FILE *ptr)
 				{"nop", _nop}, {"stack", _stack},
 				{"sub", _sub}, {"mul", _mul},
 				{"div", _div}, {"mod", _mod},
+				{"pchar", _pchar},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;
