@@ -14,7 +14,8 @@ int execute(char *line, stack_t **stack, unsigned int line_number, FILE *ptr)
 				{"pint", _pint}, {"pop", _pop},
 				{"swap", _swap}, {"add", _add},
 				{"nop", _nop}, {"stack", _stack},
-				{"sub", _sub},
+				{"sub", _sub}, {"mul", _mul},
+				{"div", _div},
 				{NULL, NULL}
 				};
 	unsigned int i = 0;
@@ -35,7 +36,7 @@ int execute(char *line, stack_t **stack, unsigned int line_number, FILE *ptr)
 	if (op && opst[i].opcode == NULL)
 	{ fprintf(stderr, "L%d: unknown instruction %s\n", line_number, op);
 		fclose(ptr);
-		/*free(line);*/
+		free(line);
 		freeme(*stack);
 		exit(EXIT_FAILURE); }
 	return (1);
