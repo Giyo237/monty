@@ -1,18 +1,29 @@
 #include "monty.h"
 /**
- * _sub - function that subs the head with other elements
- *@head:pointer to the pointer of th head of the stcck
- *line_number:line_number
- *Return:void
+  *_sub- sustration
+  *@head: stack head
+  *@line_number: line_number
+  *Return: void
  */
 void _sub(stack_t **head, unsigned int line_number)
 {
-	if (*head == NULL || (*head)->next == NULL)
+	stack_t *temp;
+	int subme, i;
+
+	temp = *head;
+	for (i = 0; temp != NULL; i++)
+		temp = temp->next;
+	if (i < 2)
 	{
-		fprintf(stderr,"L%d: can't sub, staack too short\n", line_number);
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		fclose(monty.ptr);
+		free(monty.line);
 		freeme(*head);
 		exit(EXIT_FAILURE);
 	}
-	(*head)->next->n -= (*head)->n;
-	_pop(head, line_number);
+	temp = *head;
+	subme = temp->next->n - temp->n;
+	temp->next->n = subme;
+	*head = temp->next;
+	free(temp);
 }
